@@ -1,0 +1,14 @@
+<section class="contenedor">
+  <h1>Mis materias universitarias</h1>
+  <p class="subtitulo">Materias que estoy cursando</p>
+
+  @if (mensajeError) {
+    <p class="error">{{ mensajeError }}</p>
+  }
+
+  <app-tabla-generica
+    [titulos]="titulos"
+    [columnas]="columnas"
+    [datos]="materias">
+  </app-tabla-generica>
+</section>

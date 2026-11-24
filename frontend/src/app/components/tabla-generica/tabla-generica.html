@@ -1,0 +1,16 @@
+<table mat-table [dataSource]="datos" class="tabla">
+
+  <!-- Se crea una columna por cada nombre que llega en "columnas" -->
+  @for (columna of columnas; track columna; let i = $index) {
+    <ng-container [matColumnDef]="columna">
+      <!-- Encabezado: el título que está en la misma posición -->
+      <th mat-header-cell *matHeaderCellDef>{{ titulos[i] }}</th>
+      <!-- Celda: el valor de esa propiedad en cada fila -->
+      <td mat-cell *matCellDef="let fila">{{ fila[columna] }}</td>
+    </ng-container>
+  }
+
+  <!-- Fila de encabezados y filas de datos -->
+  <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+  <tr mat-row *matRowDef="let fila; columns: columnas"></tr>
+</table>
